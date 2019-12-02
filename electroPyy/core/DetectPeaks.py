@@ -5,7 +5,7 @@ Created on Thu Nov 21 15:01:48 2019
 @author: Ludovic.SPAETH
 """
 
-class Detect_Peaks() : 
+class DetectPeaks() : 
     
     def __init__(self):
 
@@ -159,7 +159,7 @@ class Detect_Peaks() :
                 x = -x
                 if mph is not None:
                     mph = -mph
-            Detect_Peaks._plot(x, mph, mpd, threshold, edge, valley, ax, ind)
+            DetectPeaks._plot(x, mph, mpd, threshold, edge, valley, ax, ind)
     
         return ind
     
