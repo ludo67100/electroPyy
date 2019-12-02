@@ -17,6 +17,10 @@ Install Anaconda or WinPython on your operating system
 
 electroPyy requires basic packages such as ```numpy```, ```scipy```, ```matplotlib``` and ```neo```. 
 
+*numpy* and *scipy *doc : https://docs.scipy.org/doc/
+*matplotlib* doc : https://matplotlib.org/3.1.1/contents.html
+*neo* doc : https://neo.readthedocs.io/en/stable/io.html
+
 ```
 pip instal numpy, scipy, matplotlib, neo==0.8
 ```
