@@ -23,6 +23,14 @@ pip instal numpy, scipy, matplotlib, neo==0.8
 
 ### Requirements for Git install 
 
-install ```git``` : https://git-scm.com/downloads
+install ```git``` (choose correponding version for Windows, MacOS or Linux) : https://git-scm.com/downloads
+
+install electroPyy via clone from GitHub
+
+```
+pip install git+https://github.com/ludo67100/electroPyy.git
+``` 
+
+
 
 
