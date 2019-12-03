@@ -9,17 +9,17 @@ Open access
 ## Install
 electroPyy runs in Python 3, in following environments: 
 
-*Anaconda* : https://www.anaconda.com/distribution/
+-*Anaconda* : https://www.anaconda.com/distribution/
 
-*WinPython* : https://sourceforge.net/projects/winpython/
+-*WinPython* : https://sourceforge.net/projects/winpython/
 
 Install Anaconda or WinPython on your operating system 
 
 electroPyy requires basic packages such as ```numpy```, ```scipy```, ```matplotlib``` and ```neo```. 
 
-*numpy* and *scipy *doc : https://docs.scipy.org/doc/
-*matplotlib* doc : https://matplotlib.org/3.1.1/contents.html
-*neo* doc : https://neo.readthedocs.io/en/stable/io.html
+-*numpy* and *scipy *doc : https://docs.scipy.org/doc/
+-*matplotlib* doc : https://matplotlib.org/3.1.1/contents.html
+-*neo* doc : https://neo.readthedocs.io/en/stable/io.html
 
 ```
 pip instal numpy, scipy, matplotlib, neo==0.8
@@ -35,6 +35,7 @@ install electroPyy via clone from GitHub
 pip install git+https://github.com/ludo67100/electroPyy.git
 ``` 
 
+*Et voilà!*
 
 
 
