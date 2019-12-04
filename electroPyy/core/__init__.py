@@ -9,4 +9,5 @@ from electroPyy.core.AnalogSignal import AnalogSignal
 from electroPyy.core.Convolution import Convolution
 from electroPyy.core.DetectPeaks import DetectPeaks
 from electroPyy.core.Filters import Filters
+from electroPyy.core.Regression import Regression
     
