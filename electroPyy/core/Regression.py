@@ -130,7 +130,7 @@ class Regression():
             
         return px,nom,lpb,upb,r2,std
         
-        
+'''        
 if __name__ == '__main__':
     
     import numpy as np 
@@ -140,7 +140,7 @@ if __name__ == '__main__':
     
     px, nom, lpb, upb, r2, std = Regression.LinReg(x,y)
     
-    '''
+
     #First compute the residuals
     residuals = nom-y
     
@@ -149,4 +149,4 @@ if __name__ == '__main__':
     
     #Now the standard residuals 
     std_residuals = residuals/np.sqrt(mse)
-    '''
+'''
