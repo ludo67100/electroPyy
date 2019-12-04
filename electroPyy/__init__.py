@@ -15,7 +15,7 @@ from electroPyy.core import *
 
 try: 
     import neo
-    print ("Neo is already installed, that's perfect :)")
+    #print ("Neo is already installed, that's perfect :)")
     
 except ImportError:
     pass
