@@ -8,7 +8,7 @@ Script for convolution in scalogram design
 
 import numpy as np
 from scipy.signal import resample
-from scipy.fftpack import fft,ifft,fftshift
+from scipy.fftpack import fft,ifft,fftshift,fftfreq
 
 
 class Convolution():
@@ -88,3 +88,45 @@ class Convolution():
             wt = np.empty((0,scales.size),dtype='complex')
             
         return wt 
+    
+    def FFT(signal,sampling_rate,plot=True,freq_range=[0,200]):
+        
+        '''
+        signal (array) : the signal
+        sampling_rate (int or float) : signal sampling rate in Hz
+        '''
+        
+        signal = np.asarray(signal)
+        
+        time_vector = np.arange(0,len(signal),1)/sampling_rate
+        
+        timewindow = signal.size
+        period = 1./sampling_rate
+        # Fourrier transform
+        signal_fft = abs(fft(signal))    # abs to get real part only
+        
+        # get frequential domain
+        signal_freq = fftfreq(timewindow,period)
+        
+        # Get real values from FFT and frequency domain
+        signal_fft = signal_fft[0:len(signal_fft)//2]
+        signal_freq = signal_freq[0:len(signal_freq)//2]
+        
+        if plot==True: 
+            from matplotlib import pyplot as plt
+        
+            fig, ax = plt.subplots(2,1)
+        
+            #Plot the signal
+            ax[0].set_title('signal')
+            ax[0].plot(time_vector, signal)
+            ax[0].set_xlabel('Time (s)'); ax[0].set_ylabel('Signal Amp')
+            
+            #Plot the spectrum
+            ax[1].plot(signal_freq,signal_fft)
+            ax[1].set_xlabel('Freq. range (Hz)'); ax[1].set_ylabel('Freq. Power')
+            ax[1].set_xlim(freq_range[0],freq_range[1])
+            plt.tight_layout()
+            plt.show(); 
+            
+        return signal_fft, signal_freq
