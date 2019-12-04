@@ -15,7 +15,7 @@ electroPyy runs in Python 3, in following environments:
 
 Install Anaconda or WinPython on your operating system 
 
-electroPyy requires basic packages such as ```numpy```, ```scipy```, ```sklearn,```,```uncertainties```,```matplotlib``` and ```neo``` 
+electroPyy requires basic packages such as ```numpy```, ```scipy```, ```sklearn```,```uncertainties```,```matplotlib``` and ```neo``` 
 
   - *numpy* and *scipy* doc : https://docs.scipy.org/doc/
   
