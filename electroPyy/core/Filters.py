@@ -11,7 +11,7 @@ class Filters():
         
         filt = self.filt
 
-    def bandpass(signal,axis=0,freq_low=50,freq_high=1000,N=8,sample_rate=20000):
+    def bandpass(signal,axis=0,freq_low=50,freq_high=1000,N=8,filtertype='butter',sample_rate=20000):
         
         '''
         compute bandpass filtering on numpy array in accordance with Nyquist law
@@ -29,26 +29,26 @@ class Filters():
         '''
         import scipy.signal
         Wn = [ freq_low/(sample_rate/2), freq_high/(sample_rate/2)]
-        sos_coeff = scipy.signal.iirfilter(N, Wn, btype='band', ftype='butter', output='sos')
+        sos_coeff = scipy.signal.iirfilter(N, Wn, btype='band', ftype=filtertype, output='sos')
         bp_filtered = scipy.signal.sosfiltfilt(sos_coeff, signal,axis=axis)
         
         return bp_filtered
 
     
-    def lowpass(signal, axis=0,freq=1000,N=8,sample_rate=20000):
+    def lowpass(signal, axis=0,freq=1000,N=8,filtertype='butter',sample_rate=20000):
         
         import scipy.signal
         Wn = freq/(sample_rate/2)
-        sos_coeff = scipy.signal.iirfilter(N, Wn, btype='lowpass', ftype='butter', output='sos')
+        sos_coeff = scipy.signal.iirfilter(N, Wn, btype='lowpass', ftype=filtertype, output='sos')
         low_filtered = scipy.signal.sosfiltfilt(sos_coeff, signal,axis=axis)
         
         return low_filtered
     
-    def highpass(signal, axis=0,freq=1000,N=8,sample_rate=20000):
+    def highpass(signal, axis=0,freq=1000,N=8,filtertype='butter',sample_rate=20000):
         
         import scipy.signal
         Wn = freq/(sample_rate/2)
-        sos_coeff = scipy.signal.iirfilter(N, Wn, btype='highpass', ftype='butter', output='sos')
+        sos_coeff = scipy.signal.iirfilter(N, Wn, btype='highpass', ftype=filtertype, output='sos')
         high_filtered = scipy.signal.sosfiltfilt(sos_coeff, signal,axis=axis)
         
         return high_filtered
@@ -90,5 +90,6 @@ class Filters():
 #    plt.plot(time_vector, hp_signal,color='green',label='high pass')    
 #    plt.legend(loc='best')    
 
+    
     
     
