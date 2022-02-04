@@ -7,7 +7,7 @@ Created on Wed Apr 24 14:23:37 2019
 
 class Regression():
 
-    def LinReg(x,y,conf=0.95,printparams=True,plot=True):
+    def LinReg(x,y,conf=0.95,printparams=True,plot=True, ax=False):
         '''
         This code computes regression on synaptic charges measured in uncaging experiments
         Model (linear fit) is segregated between inputs depending on their location 
@@ -20,6 +20,8 @@ class Regression():
         printparams (bool) : if True, will display fit parameters and R value in the console
         
         plot (bool) : if True, will plot the result of the linear reg 
+        
+        ax, if False: creates a new figure or fill with corresponding subplot name 
         
         Returns : 
             
@@ -116,24 +118,45 @@ class Regression():
         lpb, upb = predband(px, x, y, popt, f, conf=conf)
             
         if plot == True:
-            # plot data
-            plt.figure()
-            plt.scatter(x, y, s=20, label='Data')
-            # plot the regression
-            plt.plot(px, nom, c='orange', label='y=a x + b',linewidth=2)
             
-            # uncertainty lines (95% confidence)
-            plt.plot(px, nom - 1.96 * std, c='0.5',linestyle='--',\
-                     label='95% Confidence Region')
-            plt.plot(px, nom + 1.96 * std, c='0.5',linestyle='--')
-            # prediction band (95% confidence)
-            plt.plot(px, lpb, color='0.5',label='95% Prediction Band',linestyle=':')
-            plt.plot(px, upb, color='0.5',linestyle=':')
-            plt.ylabel('Y')
-            plt.xlabel('X')
-            plt.legend(loc='best')
-            plt.title('Linear Reg : R$^2$={}'.format(round(r2,2)))
-            plt.show()
+            if ax=False:
+            
+                # plot data
+                plt.figure()
+                plt.scatter(x, y, s=20, label='Data')
+                # plot the regression
+                plt.plot(px, nom, c='orange', label='y=a x + b',linewidth=2)
+
+                # uncertainty lines (95% confidence)
+                plt.plot(px, nom - 1.96 * std, c='0.5',linestyle='--',\
+                         label='95% Confidence Region')
+                plt.plot(px, nom + 1.96 * std, c='0.5',linestyle='--')
+                # prediction band (95% confidence)
+                plt.plot(px, lpb, color='0.5',label='95% Prediction Band',linestyle=':')
+                plt.plot(px, upb, color='0.5',linestyle=':')
+                plt.ylabel('Y')
+                plt.xlabel('X')
+                plt.legend(loc='best')
+                plt.title('Linear Reg : R$^2$={}'.format(round(r2,2)))
+                plt.show()
+                
+            else:
+            
+                # plot data
+                ax.figure()
+                ax.scatter(x, y, s=20, label='Data')
+                # plot the regression
+                ax.plot(px, nom, c='orange', label='y=a x + b',linewidth=2)
+
+                # uncertainty lines (95% confidence)
+                ax.plot(px, nom - 1.96 * std, c='0.5',linestyle='--',\
+                         label='95% Confidence Region')
+                ax.plot(px, nom + 1.96 * std, c='0.5',linestyle='--')
+                # prediction band (95% confidence)
+                ax.plot(px, lpb, color='0.5',label='95% Prediction Band',linestyle=':')
+                ax.plot(px, upb, color='0.5',linestyle=':')
+                ax.legend(loc='best')
+                ax.set_title('Linear Reg : R$^2$={}'.format(round(r2,2)))
             
         return px,nom,lpb,upb,r2,std
         
