@@ -119,7 +119,7 @@ class Regression():
             
         if plot == True:
             
-            if ax=False:
+            if ax==False:
             
                 # plot data
                 plt.figure()
