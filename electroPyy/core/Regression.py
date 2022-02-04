@@ -7,7 +7,7 @@ Created on Wed Apr 24 14:23:37 2019
 
 class Regression():
 
-    def LinReg(x,y,conf=0.95,printparams=True,plot=True, ax=False):
+    def LinReg(x,y,conf=0.95,printparams=True,plot=True, lineColor='tab:orange', dotColor='tab:blue', ax=False):
         '''
         This code computes regression on synaptic charges measured in uncaging experiments
         Model (linear fit) is segregated between inputs depending on their location 
@@ -123,9 +123,9 @@ class Regression():
             
                 # plot data
                 plt.figure()
-                plt.scatter(x, y, s=20, label='Data')
+                plt.scatter(x, y, s=20, label='Data', color=dotColor)
                 # plot the regression
-                plt.plot(px, nom, c='orange', label='y=a x + b',linewidth=2)
+                plt.plot(px, nom, c=lineColor, label='y=a x + b',linewidth=2)
 
                 # uncertainty lines (95% confidence)
                 plt.plot(px, nom - 1.96 * std, c='0.5',linestyle='--',\
@@ -143,9 +143,9 @@ class Regression():
             else:
             
                 # plot data
-                ax.scatter(x, y, s=20, label='Data')
+                ax.scatter(x, y, s=20, label='Data', color=dotColor)
                 # plot the regression
-                ax.plot(px, nom, c='orange', label='y=a x + b',linewidth=2)
+                ax.plot(px, nom, c=lineColor, label='y=a x + b',linewidth=2)
 
                 # uncertainty lines (95% confidence)
                 ax.plot(px, nom - 1.96 * std, c='0.5',linestyle='--',\
