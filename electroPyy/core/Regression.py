@@ -143,7 +143,6 @@ class Regression():
             else:
             
                 # plot data
-                ax.figure()
                 ax.scatter(x, y, s=20, label='Data')
                 # plot the regression
                 ax.plot(px, nom, c='orange', label='y=a x + b',linewidth=2)
