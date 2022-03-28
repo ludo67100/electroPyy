@@ -64,6 +64,8 @@ class Regression():
         # retrieve parameter values
         a = popt[0]
         b = popt[1]
+        
+        coeffs = [a,b]
     
         # compute r^2
         r2 = 1.0-(sum((y-f(x,a,b))**2)/((n-1.0)*np.var(y,ddof=1)))
@@ -139,7 +141,7 @@ class Regression():
                 plt.xlabel('X')
                 if legendIn==True:
                     plt.legend(loc='best')
-                plt.title('Linear Reg : R$^2$={}'.format(round(r2,2)))
+                plt.title('Linear Reg : R$^2$={}\na={} | b={}'.format(round(r2,2),a,b))
                 plt.show()
                 
             else:
@@ -158,9 +160,9 @@ class Regression():
                 ax.plot(px, upb, color='0.5',linestyle=':')
                 if legendIn==True:    
                     ax.legend(loc='best')
-                ax.set_title('Linear Reg : R$^2$={}'.format(round(r2,2)))
+                ax.set_title('Linear Reg : R$^2$={}\na={} | b={}'.format(round(r2,2),a,b))
             
-        return px,nom,lpb,upb,r2,std
+        return px,nom,lpb,upb,r2,std,coeffs
         
         
 #if __name__ == '__main__':
